@@ -1,10 +1,8 @@
+import typing as t
 
 
-def dotval(obj, dottedpath: str, default=None):
+def dotval(obj, dottedpath: str, default=None) -> t.Any:
     """
-    Возвращает значение аттрибута объекта или элемента словаря по его пути в формате 'a.b.c'
-    Примеры:
-
     obj = {'item1': {'nested': 123, 'other': 456}}
     >>> dotval(obj, 'item1.nested')
     123
@@ -26,10 +24,8 @@ def dotval(obj, dottedpath: str, default=None):
     return val
 
 
-def attrs_to_dict(obj, attrib_names: Sequence[str]) -> dict:
+def attrs_to_dict(obj, attrib_names: t.Sequence[str]) -> dict:
     """
-    Возвращает словарь атрибутов и их значений.
-
     attrs_to_dict(some_obj, ['id', 'field']) -> {'id': 12, 'field': 'value'}
     """
     return {name: dotval(obj, name) for name in attrib_names}
