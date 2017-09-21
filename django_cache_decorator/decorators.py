@@ -66,8 +66,9 @@ def cached_method(field_names: t.List[str] = None,
             self = args[0]
             cache_key = build_cache_key(self, field_names, func_name)
             val = cache.get(cache_key)
-            if val is not None and callable(on_cache_hit):
-                on_cache_hit(val)
+            if val is not None:
+                if callable(on_cache_hit):
+                    on_cache_hit(val)
                 return val
             val = func(*args, **kwargs)
             cache.set(cache_key, val, timeout)
@@ -98,8 +99,9 @@ def cached_func(timeout: t.Optional[int] = None,
         def wrapper(*args, **kwargs):
             cache_key = build_func_cache_key(func_name, *args, **kwargs)
             val = cache.get(cache_key)
-            if val is not None and callable(on_cache_hit):
-                on_cache_hit(val)
+            if val is not None:
+                if callable(on_cache_hit):
+                    on_cache_hit(val)
                 return val
             val = func(*args, **kwargs)
             cache.set(cache_key, val, timeout)
