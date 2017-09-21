@@ -1,15 +1,15 @@
 from setuptools import setup, find_packages
 
-from django_cached_decorator import __version__
+from django_cache_decorator import __version__
 
 with open('README.rst', 'r') as f:
     long_description = f.read()
 
 setup(
-    name='django-cached-decorator',
+    name='django-cache-decorator',
     version=__version__,
     packages=find_packages(),
-    url='https://github.com/kornov-rooman/django-cached-decorator',
+    url='https://github.com/kornov-rooman/django-cache-decorator',
     license='MIT',
     author='A Piece of Watermelon',
     author_email='kornov.rooman@gmail.com',

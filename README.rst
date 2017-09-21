@@ -2,7 +2,7 @@ Installation
 ------------
 .. code:: bash
 
-    pip install -e git+https://github.com/kornov-rooman/django-cached-decorator.git@#egg=django-cached-decorator
+    pip install -e git+https://github.com/kornov-rooman/django-cache-decorator.git@#egg=django-cache-decorator
 
 
 Sample
