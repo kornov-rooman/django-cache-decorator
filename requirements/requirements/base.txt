@@ -1,6 +1,1 @@
-furl
-
 django
-djangorestframework
-
--e git+https://github.com/night-crawler/async-fetcher.git@0.1.8#egg=async-fetcher
