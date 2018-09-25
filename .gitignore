@@ -1,11 +1,3 @@
-# Byte-compiled / optimized / DLL files
-__pycache__/
-*.py[cod]
-*$py.class
-
-# Directories
 .idea
-.cache
-build/
-dist/
-*.egg-info/
+__pycache__
+.pytest_cache
