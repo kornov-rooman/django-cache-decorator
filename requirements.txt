@@ -1,1 +1,4 @@
--r requirements/base.txt
+-r requirements/dev-pkgs.txt
+-r requirements/test-pkgs.txt
+-r requirements/packaging-pkgs.txt
+-r requirements/optional-pkgs.txt

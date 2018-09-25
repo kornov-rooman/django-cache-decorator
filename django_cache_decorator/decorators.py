@@ -3,7 +3,7 @@ from functools import wraps
 
 from django.core.cache import cache
 
-from .key_builders import build_model_cache_key, build_func_cache_key
+from .key_builders import build_func_cache_key, build_model_cache_key
 
 
 def cached_method(field_names: t.List[str] = None,
