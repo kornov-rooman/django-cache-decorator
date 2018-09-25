@@ -1,18 +1,18 @@
 import typing as t
 
 
-def dotval(obj, dottedpath: str, default=None) -> t.Any:
+def dot_value(obj, dotted_path: str, default: t.Optional[t.Any] = None) -> t.Any:
     """
     obj = {'item1': {'nested': 123, 'other': 456}}
-    >>> dotval(obj, 'item1.nested')
+    >>> dot_value(obj, 'item1.nested')
     123
 
-    >>> dotval(obj, 'item2')
+    >>> dot_value(obj, 'item2')
     None
     """
     val = obj
     sentinel = object()
-    for attr in dottedpath.split('.'):
+    for attr in dotted_path.split('.'):
         if isinstance(val, dict):
             val = val.get(attr, sentinel)
             if val is sentinel:
@@ -28,4 +28,4 @@ def attrs_to_dict(obj, attrib_names: t.Sequence[str]) -> dict:
     """
     attrs_to_dict(some_obj, ['id', 'field']) -> {'id': 12, 'field': 'value'}
     """
-    return {name: dotval(obj, name) for name in attrib_names}
+    return {name: dot_value(obj, name) for name in attrib_names}
