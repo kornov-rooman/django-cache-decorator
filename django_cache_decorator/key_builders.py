@@ -32,4 +32,4 @@ def build_func_cache_key(func_name: str, *args, **kwargs) -> str:
         parts.append(k)
         parts.append(kwargs[k])
 
-    return ';'.join(map(lambda s: str(s).replace(' ', '_'), parts))
+    return ':'.join(map(lambda s: str(s).replace(' ', '_'), parts))

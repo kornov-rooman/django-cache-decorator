@@ -16,14 +16,15 @@ pytestmark = [
 class BuildModelCacheKeyTest:
     @pytest.mark.django_db
     def test_ok(self):
-        instance = SomeModel.objects.create()
-
+        instance = SomeModel.objects.create(some_field='one two three value')
         cache_key = build_model_cache_key(instance, ['some_field'], 'some_method_name')
-        print(cache_key)
+
+        assert cache_key == 'tests:SomeModel:some_field:one_two_three_value:some_method_name'
 
 
 # noinspection PyMethodMayBeStatic
 class BuildFuncCacheKeyTest:
     def test_ok(self):
-        cache_key = build_func_cache_key('some_function_name')
-        print(cache_key)
+        cache_key = build_func_cache_key('some_function_name', 1, 2, 'three', say='hello')
+
+        assert cache_key == 'some_function_name:1:2:three:say:hello'
